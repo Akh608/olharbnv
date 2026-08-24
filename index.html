@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Olhar por Benavente</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; padding: 15px; background: #f4f6f8; color: #333; }
+    .card { background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); max-width: 500px; margin: 0 auto; }
+    h1 { font-size: 1.4rem; color: #1e3a8a; margin-top: 0; }
+    label { display: block; margin-top: 15px; font-weight: bold; font-size: 0.9rem; }
+    select, input, textarea, button { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
+    button { background: #1e3a8a; color: white; font-weight: bold; border: none; margin-top: 20px; cursor: pointer; }
+    button:hover { background: #1d4ed8; }
+    .btn-gps { background: #059669; margin-top: 5px; }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Olhar por Benavente</h1>
+    <p style="font-size: 0.85rem; color: #666;">Reporte de ocorrências no espaço público diretamente para as entidades competentes.</p>
+
+    <!-- Freguesia -->
+    <label for="freguesia">Freguesia:</label>
+    <select id="freguesia"></select>
+
+    <!-- 3 Níveis de Taxonomia -->
+    <label for="tema">Tema (Nível 1):</label>
+    <select id="tema"></select>
+
+    <label for="tipo">Tipo (Nível 2):</label>
+    <select id="tipo"></select>
+
+    <label for="problema">Problema (Nível 3):</label>
+    <select id="problema"></select>
+
+    <!-- Localização GPS -->
+    <label>Localização:</label>
+    <button type="button" class="btn-gps" onclick="obterGPS()">📍 Obter Localização GPS</button>
+    <input type="text" id="coords" placeholder="Coordenadas GPS" readonly>
+    <input type="text" id="morada" placeholder="Ponto de referência ou rua (opcional)">
+
+    <!-- Detalhes -->
+    <label for="detalhes">Detalhes adicionais (opcional):</label>
+    <textarea id="detalhes" rows="3" placeholder="Informação adicional sobre a ocorrência..."></textarea>
+
+    <!-- Submeter -->
+    <button onclick="gerarEmail()">Gerar e Enviar Email</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
