@@ -1,0 +1,459 @@
+{
+  "entidades": {
+    "cm_benavente": {
+      "nome": "Câmara Municipal de Benavente",
+      "email": "geral@cm-benavente.pt"
+    },
+    "jf_samora": {
+      "nome": "Junta de Freguesia de Samora Correia",
+      "email": "geral@jf-samoracorreia.pt"
+    },
+    "jf_benavente": {
+      "nome": "Junta de Freguesia de Benavente",
+      "email": "geral@jf-benavente.pt"
+    },
+    "jf_santo_estevao": {
+      "nome": "Junta de Freguesia de Santo Estêvão",
+      "email": "geral@jf-santoestevao.pt"
+    },
+    "jf_barrosa": {
+      "nome": "Junta de Freguesia da Barrosa",
+      "email": "geral@jf-barrosa.pt"
+    },
+    "aguas_ribatejo": {
+      "nome": "Águas do Ribatejo",
+      "email": "geral@aguasdoribatejo.pt"
+    },
+    "eredes": {
+      "nome": "E-Redes (Avarias/Iluminação)",
+      "email": "apoio.cliente@e-redes.pt"
+    },
+    "protecao_civil": {
+      "nome": "Serviço Municipal de Proteção Civil",
+      "email": "protecao.civil@cm-benavente.pt"
+    },
+    "gnr_ct_santarem": {
+      "nome": "GNR - Comando Territorial de Santarém",
+      "email": "ct.str@gnr.pt"
+    },
+    "gnr_posto_samora": {
+      "nome": "GNR - Posto Territorial de Samora Correia",
+      "email": "ct.str.dcch.psm@gnr.pt"
+    }
+  },
+  "freguesias": [
+    {
+      "id": "samora",
+      "label": "Samora Correia",
+      "entidade": "jf_samora",
+      "posto_gnr": "gnr_posto_samora"
+    },
+    {
+      "id": "benavente",
+      "label": "Benavente",
+      "entidade": "jf_benavente",
+      "posto_gnr": null
+    },
+    {
+      "id": "santo_estevao",
+      "label": "Santo Estêvão",
+      "entidade": "jf_santo_estevao",
+      "posto_gnr": null
+    },
+    {
+      "id": "barrosa",
+      "label": "Barrosa",
+      "entidade": "jf_barrosa",
+      "posto_gnr": null
+    }
+  ],
+  "regras_roteamento": {
+    "vias_e_acessibilidades": {
+      "to": [
+        "cm_benavente"
+      ],
+      "cc": [],
+      "cc_freguesia": true
+    },
+    "aguas_saneamento_drenagem": {
+      "to": [
+        "aguas_ribatejo"
+      ],
+      "cc": [
+        "cm_benavente"
+      ],
+      "cc_freguesia": true
+    },
+    "higiene_urbana_residuos": {
+      "to": [
+        "cm_benavente"
+      ],
+      "cc": [],
+      "cc_freguesia": true
+    },
+    "espacos_verdes_arvoredo": {
+      "to": [
+        "cm_benavente"
+      ],
+      "cc": [],
+      "cc_freguesia": true
+    },
+    "iluminacao_e_eletricidade": {
+      "to": [
+        "cm_benavente"
+      ],
+      "cc": [
+        "eredes"
+      ],
+      "cc_freguesia": true
+    },
+    "animais_e_pragas": {
+      "to": [
+        "cm_benavente"
+      ],
+      "cc": [],
+      "cc_freguesia": true
+    },
+    "edificios_veiculos_perigos": {
+      "to": [
+        "cm_benavente"
+      ],
+      "cc": [
+        "gnr_ct_santarem"
+      ],
+      "cc_freguesia": true,
+      "cc_posto_gnr_local": true
+    }
+  },
+  "taxonomia": {
+    "vias_e_acessibilidades": {
+      "label": "Vias Públicas e Acessibilidades",
+      "tipos": {
+        "faixa_de_rodagem": {
+          "label": "Faixa de Rodagem (Estrada)",
+          "problemas": [
+            {
+              "id": "buraco_asfalto",
+              "label": "Buraco ou abatimento no asfalto"
+            },
+            {
+              "id": "lomba_danificada",
+              "label": "Lombas / Redutores de velocidade danificados"
+            },
+            {
+              "id": "sinalizacao_horizontal",
+              "label": "Sinalização horizontal (passadeiras/linhas) apagada"
+            },
+            {
+              "id": "outro",
+              "label": "Outro (descrever)"
+            }
+          ]
+        },
+        "passeios_e_pedonais": {
+          "label": "Passeios e Zonas Pedonais",
+          "problemas": [
+            {
+              "id": "calcada_partida",
+              "label": "Calçada / Lajetas levantadas ou partidas"
+            },
+            {
+              "id": "tampa_caixa_solta",
+              "label": "Tampa de caixa de visita solta ou ruidosa"
+            },
+            {
+              "id": "acessibilidade_reduzida",
+              "label": "Falta de rebaixamento / Acessibilidade reduzida"
+            },
+            {
+              "id": "outro",
+              "label": "Outro (descrever)"
+            }
+          ]
+        },
+        "sinalizacao_e_transito": {
+          "label": "Sinalização e Trânsito",
+          "problemas": [
+            {
+              "id": "sinal_vertical_danificado",
+              "label": "Sinal vertical danificado, caído ou virado"
+            },
+            {
+              "id": "semaforo_avariado",
+              "label": "Sinalizador luminoso / Semáforo avariado"
+            },
+            {
+              "id": "espelho_transito",
+              "label": "Espelho de trânsito partido ou desalinhado"
+            },
+            {
+              "id": "outro",
+              "label": "Outro (descrever)"
+            }
+          ]
+        }
+      }
+    },
+    "aguas_saneamento_drenagem": {
+      "label": "Águas, Saneamento e Drenagem",
+      "tipos": {
+        "rede_agua_potavel": {
+          "label": "Rede de Água Potável",
+          "problemas": [
+            {
+              "id": "fuga_agua",
+              "label": "Fuga / Rotura de água na via pública"
+            },
+            {
+              "id": "falta_pressao_corte",
+              "label": "Falta de pressão / Corte de água"
+            },
+            {
+              "id": "caixa_contador_danificada",
+              "label": "Contador / Caixa de água na via pública danificada"
+            },
+            {
+              "id": "outro",
+              "label": "Outro (descrever)"
+            }
+          ]
+        },
+        "esgotos_e_drenagem": {
+          "label": "Esgotos e Drenagem Pluvial",
+          "problemas": [
+            {
+              "id": "sarjeta_entupida",
+              "label": "Sarjeta / Sarjetão entupido ou com mau cheiro"
+            },
+            {
+              "id": "inundacao_via",
+              "label": "Acumulação de água / Inundação na via"
+            },
+            {
+              "id": "tampa_esgoto_partida",
+              "label": "Tampa de esgoto partida ou em falta"
+            },
+            {
+              "id": "outro",
+              "label": "Outro (descrever)"
+            }
+          ]
+        }
+      }
+    },
+    "higiene_urbana_residuos": {
+      "label": "Higiene Urbana e Resíduos",
+      "tipos": {
+        "contentores_e_ecopontos": {
+          "label": "Contentores e Ecopontos",
+          "problemas": [
+            {
+              "id": "contentor_cheio",
+              "label": "Contentor cheio / Acumulação de lixo ao redor"
+            },
+            {
+              "id": "contentor_danificado",
+              "label": "Contentor danificado (sem tampa, pedal ou rodas)"
+            },
+            {
+              "id": "ecoponto_atestado",
+              "label": "Ecoponto atestado / Pedido de recolha"
+            },
+            {
+              "id": "outro",
+              "label": "Outro (descrever)"
+            }
+          ]
+        },
+        "limpeza_e_volumosos": {
+          "label": "Limpeza e Resíduos Volumosos",
+          "problemas": [
+            {
+              "id": "monos_abandonados",
+              "label": "Monos e eletrodomésticos abandonados na rua"
+            },
+            {
+              "id": "entulho_obras",
+              "label": "Entulho de obras na via pública"
+            },
+            {
+              "id": "falta_varredura_dejetos",
+              "label": "Falta de varredura / Dejetos caninos em excesso"
+            },
+            {
+              "id": "outro",
+              "label": "Outro (descrever)"
+            }
+          ]
+        }
+      }
+    },
+    "espacos_verdes_arvoredo": {
+      "label": "Espaços Verdes e Arvoredo",
+      "tipos": {
+        "arvoredo_e_vegetacao": {
+          "label": "Arvoredo e Mapeamento Vegetal",
+          "problemas": [
+            {
+              "id": "arvore_risco_queda",
+              "label": "Ramos / Árvore em risco de queda"
+            },
+            {
+              "id": "ramosa_tapar_sinal",
+              "label": "Ramos a tapar sinalização ou iluminação"
+            },
+            {
+              "id": "mato_excessivo",
+              "label": "Mato / Ervas daninhas em excesso no passeio"
+            },
+            {
+              "id": "outro",
+              "label": "Outro (descrever)"
+            }
+          ]
+        },
+        "parques_e_mobiliario": {
+          "label": "Parques e Mobiliário Urbano",
+          "problemas": [
+            {
+              "id": "parque_infantil_danificado",
+              "label": "Equipamento infantil partido / Inseguro"
+            },
+            {
+              "id": "banco_papeleira_danificada",
+              "label": "Banco de jardim ou papeleira danificada"
+            },
+            {
+              "id": "rega_publica_avariada",
+              "label": "Sistema de rega pública avariado / A desperdiçar água"
+            },
+            {
+              "id": "outro",
+              "label": "Outro (descrever)"
+            }
+          ]
+        }
+      }
+    },
+    "iluminacao_e_eletricidade": {
+      "label": "Iluminação Pública e Eletricidade",
+      "tipos": {
+        "rede_iluminacao": {
+          "label": "Rede de Iluminação",
+          "problemas": [
+            {
+              "id": "candeeiro_apagado",
+              "label": "Candeeiro apagado"
+            },
+            {
+              "id": "rua_as_escuras",
+              "label": "Rua inteira às escuras"
+            },
+            {
+              "id": "luminaria_acesa_dia",
+              "label": "Luminária acesa durante o dia"
+            },
+            {
+              "id": "outro",
+              "label": "Outro (descrever)"
+            }
+          ]
+        },
+        "infraestrutura_e_perigo": {
+          "label": "Infraestrutura e Perigo",
+          "problemas": [
+            {
+              "id": "poste_risco_queda",
+              "label": "Poste em risco de queda ou inclinado"
+            },
+            {
+              "id": "cabos_pendurados",
+              "label": "Cabos pendurados / Soltos em zona pedonal"
+            },
+            {
+              "id": "portinhola_aberta",
+              "label": "Portinhola de poste aberta (fios expostos)"
+            },
+            {
+              "id": "outro",
+              "label": "Outro (descrever)"
+            }
+          ]
+        }
+      }
+    },
+    "animais_e_pragas": {
+      "label": "Animais e Pragas Urbanas",
+      "tipos": {
+        "pragas_urbanas": {
+          "label": "Pragas Urbanas",
+          "problemas": [
+            {
+              "id": "vespa_asiatica",
+              "label": "Ninho de Vespa Asiática"
+            },
+            {
+              "id": "processionaria",
+              "label": "Processionária (Lagarta do Pinheiro)"
+            },
+            {
+              "id": "roedores",
+              "label": "Ratos / Roedores na via pública"
+            },
+            {
+              "id": "baratas_esgotos",
+              "label": "Baratas / Pragas de insetos na rede de esgotos"
+            },
+            {
+              "id": "outro",
+              "label": "Outro (descrever)"
+            }
+          ]
+        },
+        "controlo_animal": {
+          "label": "Controlo Animal",
+          "problemas": [
+            {
+              "id": "animal_errante",
+              "label": "Animal errante / Abandonado com necessidade de resgate"
+            },
+            {
+              "id": "cadaver_animal",
+              "label": "Cadáver de animal na via pública"
+            },
+            {
+              "id": "outro",
+              "label": "Outro (descrever)"
+            }
+          ]
+        }
+      }
+    },
+    "edificios_veiculos_perigos": {
+      "label": "Edifícios, Veículos e Outros Perigos",
+      "tipos": {
+        "seguranca_e_abandono": {
+          "label": "Segurança e Abandono",
+          "problemas": [
+            {
+              "id": "veiculo_abandonado",
+              "label": "Veículo abandonado / Em estado de degradação"
+            },
+            {
+              "id": "edificio_risco_ruina",
+              "label": "Edifício / Muro privado ou público em risco de ruína"
+            },
+            {
+              "id": "vandalismo_graffitis",
+              "label": "Vandalismo / Graffitis em património municipal"
+            },
+            {
+              "id": "outro",
+              "label": "Outro (descrever)"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
