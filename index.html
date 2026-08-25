@@ -4,52 +4,72 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Olhar por Benavente</title>
+  
+  <!-- Suporte a PWA -->
   <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1e3a8a">
+  <link rel="apple-touch-icon" href="icon-192.png">
+
   <style>
-    body { font-family: system-ui, -apple-system, sans-serif; padding: 15px; background: #f4f6f8; color: #333; }
-    .card { background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); max-width: 500px; margin: 0 auto; }
-    h1 { font-size: 1.4rem; color: #1e3a8a; margin-top: 0; }
-    label { display: block; margin-top: 15px; font-weight: bold; font-size: 0.9rem; }
-    select, input, textarea, button { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
-    button { background: #1e3a8a; color: white; font-weight: bold; border: none; margin-top: 20px; cursor: pointer; }
+    body { font-family: system-ui, -apple-system, sans-serif; padding: 15px; background: #f4f6f8; color: #333; margin: 0; }
+    .card { background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); max-width: 500px; margin: 20px auto; }
+    h1 { font-size: 1.5rem; color: #1e3a8a; margin-top: 0; }
+    label { display: block; margin-top: 15px; font-weight: 600; font-size: 0.9rem; color: #4b5563; }
+    select, input, textarea, button { width: 100%; padding: 12px; margin-top: 6px; border: 1px solid #d1d5db; border-radius: 8px; box-sizing: border-box; font-size: 1rem; }
+    button { background: #1e3a8a; color: white; font-weight: bold; border: none; margin-top: 20px; cursor: pointer; transition: background 0.2s; }
     button:hover { background: #1d4ed8; }
-    .btn-gps { background: #059669; margin-top: 5px; }
+    .btn-gps { background: #059669; margin-top: 6px; }
+    .btn-gps:hover { background: #047857; }
+    
+    /* Caixa de Alerta sobre a Foto */
+    .alert-box { background: #eff6ff; border-left: 4px solid #2563eb; padding: 12px; margin-top: 20px; border-radius: 6px; font-size: 0.88rem; color: #1e40af; }
+    .alert-box strong { display: block; margin-bottom: 4px; }
   </style>
 </head>
 <body>
 
   <div class="card">
     <h1>Olhar por Benavente</h1>
-    <p style="font-size: 0.85rem; color: #666;">Reporte de ocorrências no espaço público diretamente para as entidades competentes.</p>
+    <p style="font-size: 0.88rem; color: #6b7280; margin-bottom: 20px;">Reporte direto de anomalias no espaço público para as entidades competentes.</p>
 
-    <!-- Freguesia -->
     <label for="freguesia">Freguesia:</label>
     <select id="freguesia"></select>
 
-    <!-- 3 Níveis de Taxonomia -->
-    <label for="tema">Tema (Nível 1):</label>
+    <label for="tema">Tema:</label>
     <select id="tema"></select>
 
-    <label for="tipo">Tipo (Nível 2):</label>
+    <label for="tipo">Tipo:</label>
     <select id="tipo"></select>
 
-    <label for="problema">Problema (Nível 3):</label>
+    <label for="problema">Ocorrência:</label>
     <select id="problema"></select>
 
-    <!-- Localização GPS -->
     <label>Localização:</label>
-    <button type="button" class="btn-gps" onclick="obterGPS()">📍 Obter Localização GPS</button>
-    <input type="text" id="coords" placeholder="Coordenadas GPS" readonly>
-    <input type="text" id="morada" placeholder="Ponto de referência ou rua (opcional)">
+    <button type="button" class="btn-gps" onclick="obterGPS()">📍 Obter Coordenadas GPS</button>
+    <input type="text" id="coords" placeholder="Coordenadas GPS" readonly style="background: #f9fafb;">
+    <input type="text" id="morada" placeholder="Rua ou ponto de referência (opcional)">
 
-    <!-- Detalhes -->
     <label for="detalhes">Detalhes adicionais (opcional):</label>
-    <textarea id="detalhes" rows="3" placeholder="Informação adicional sobre a ocorrência..."></textarea>
+    <textarea id="detalhes" rows="3" placeholder="Escreva aqui mais detalhes sobre o problema..."></textarea>
 
-    <!-- Submeter -->
+    <!-- Alerta Informativo sobre a Foto -->
+    <div class="alert-box">
+      <strong>📸 Lembrete da Fotografia:</strong>
+      Ao clicar no botão abaixo, a sua aplicação de email vai abrir com tudo preenchido. 
+      <strong>Não se esqueça de anexar a foto (📎)</strong> antes de carregar em enviar!
+    </div>
+
     <button onclick="gerarEmail()">Gerar e Enviar Email</button>
   </div>
 
   <script src="app.js"></script>
+  <script>
+    // Registar o Service Worker para suporte PWA offline/instalável
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(() => console.log('Service Worker registado!'))
+        .catch(err => console.error('Erro no SW:', err));
+    }
+  </script>
 </body>
 </html>
